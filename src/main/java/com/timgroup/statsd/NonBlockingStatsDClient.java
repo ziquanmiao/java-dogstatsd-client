@@ -292,7 +292,6 @@ public class NonBlockingStatsDClient implements StatsDClient {
     /**
      * Create a new StatsD client communicating with a StatsD instance on the
      * specified host and port.
-     *
      * This is a shallow copy constructor meant to be used internally only.
      *
      * @param client
@@ -300,12 +299,12 @@ public class NonBlockingStatsDClient implements StatsDClient {
      */
     private NonBlockingStatsDClient(NonBlockingStatsDClient client) {
 
-            this.prefix = client.prefix;
-            this.handler = client.handler;
-            this.constantTagsRendered = client.constantTagsRendered;
-            this.clientChannel = client.clientChannel;
-            this.statsDProcessor = client.statsDProcessor;
-            this.statsDSender = client.statsDSender;
+        this.prefix = client.prefix;
+        this.handler = client.handler;
+        this.constantTagsRendered = client.constantTagsRendered;
+        this.clientChannel = client.clientChannel;
+        this.statsDProcessor = client.statsDProcessor;
+        this.statsDSender = client.statsDSender;
     }
 
 
@@ -389,7 +388,8 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port, final int queueSize) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port,
+            final int queueSize) throws StatsDClientException {
 
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
@@ -424,7 +424,8 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port, final String... constantTags) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port,
+            final String... constantTags) throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .hostname(hostname)
@@ -460,7 +461,8 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port, final String[] constantTags, final int maxPacketSizeBytes) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port,
+            final String[] constantTags, final int maxPacketSizeBytes) throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .hostname(hostname)
@@ -497,7 +499,8 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port, final int queueSize, final String... constantTags) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port,
+            final int queueSize, final String... constantTags) throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .hostname(hostname)
@@ -535,8 +538,9 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port,
-                                   final String[] constantTags, final StatsDClientErrorHandler errorHandler) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix,final String hostname, final int port,
+                                   final String[] constantTags, final StatsDClientErrorHandler errorHandler)
+        throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .hostname(hostname)
@@ -577,7 +581,7 @@ public class NonBlockingStatsDClient implements StatsDClient {
      */
     @Deprecated
     public NonBlockingStatsDClient(final String prefix, final String hostname, final int port, final int queueSize,
-                                   final String[] constantTags, final StatsDClientErrorHandler errorHandler) throws StatsDClientException {
+            final String[] constantTags, final StatsDClientErrorHandler errorHandler) throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .hostname(hostname)
@@ -624,7 +628,8 @@ public class NonBlockingStatsDClient implements StatsDClient {
      */
     @Deprecated
     public NonBlockingStatsDClient(final String prefix, final String hostname, final int port, final int queueSize,
-                                   final String[] constantTags, final StatsDClientErrorHandler errorHandler, String entityID) throws StatsDClientException {
+            final String[] constantTags, final StatsDClientErrorHandler errorHandler, String entityID)
+        throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .hostname(hostname)
@@ -669,8 +674,9 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port, final int queueSize,
-                                   final String[] constantTags, final StatsDClientErrorHandler errorHandler, final int maxPacketSizeBytes) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port,
+            final int queueSize, final String[] constantTags, final StatsDClientErrorHandler errorHandler,
+            final int maxPacketSizeBytes) throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .hostname(hostname)
@@ -716,8 +722,9 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port, final int queueSize, int timeout, int bufferSize,
-                                   final String[] constantTags, final StatsDClientErrorHandler errorHandler) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix, final String hostname, final int port,
+            final int queueSize, int timeout, int bufferSize, final String[] constantTags,
+            final StatsDClientErrorHandler errorHandler) throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .hostname(hostname)
@@ -755,8 +762,9 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final int queueSize, String[] constantTags, final StatsDClientErrorHandler errorHandler,
-                                   final Callable<SocketAddress> addressLookup) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix, final int queueSize, String[] constantTags,
+            final StatsDClientErrorHandler errorHandler, final Callable<SocketAddress> addressLookup)
+        throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .queueSize(queueSize)
@@ -795,8 +803,9 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix, final int queueSize, String[] constantTags, final StatsDClientErrorHandler errorHandler,
-                                   final Callable<SocketAddress> addressLookup, final int timeout, final int bufferSize) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix, final int queueSize, String[] constantTags,
+            final StatsDClientErrorHandler errorHandler, final Callable<SocketAddress> addressLookup,
+            final int timeout, final int bufferSize) throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .queueSize(queueSize)
@@ -839,8 +848,9 @@ public class NonBlockingStatsDClient implements StatsDClient {
      *     if the client could not be started
      */
     @Deprecated
-    public NonBlockingStatsDClient(final String prefix,  final int queueSize, String[] constantTags, final StatsDClientErrorHandler errorHandler,
-                                   final Callable<SocketAddress> addressLookup, final int timeout, final int bufferSize, final int maxPacketSizeBytes) throws StatsDClientException {
+    public NonBlockingStatsDClient(final String prefix,  final int queueSize, String[] constantTags,
+            final StatsDClientErrorHandler errorHandler, final Callable<SocketAddress> addressLookup,
+            final int timeout, final int bufferSize, final int maxPacketSizeBytes) throws StatsDClientException {
         this(new NonBlockingStatsDClientBuilder()
             .prefix(prefix)
             .queueSize(queueSize)
