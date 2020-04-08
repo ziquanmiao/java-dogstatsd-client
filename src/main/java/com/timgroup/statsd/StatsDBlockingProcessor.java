@@ -18,6 +18,13 @@ public class StatsDBlockingProcessor extends StatsDProcessor {
         this.messages = new ArrayBlockingQueue<String>(queueSize);
     }
 
+    StatsDBlockingProcessor(final StatsDBlockingProcessor processor)
+            throws Exception {
+
+        super(processor);
+        this.messages = new ArrayBlockingQueue<String>(processor.getQcapacity());
+    }
+
     @Override
     boolean send(final String message) {
         try {
