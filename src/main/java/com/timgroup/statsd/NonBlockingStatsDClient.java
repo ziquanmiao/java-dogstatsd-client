@@ -312,6 +312,8 @@ public class NonBlockingStatsDClient implements StatsDClient {
             throw new StatsDClientException("Failed to instantiate StatsD client copy", e);
         }
 
+        telemetry = new Telemetry(client.telemetry.getTags(), statsDProcessor);
+
         executor.submit(statsDProcessor);
         executor.submit(statsDSender);
     }

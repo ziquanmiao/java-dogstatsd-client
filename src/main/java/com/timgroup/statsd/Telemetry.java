@@ -8,6 +8,8 @@ public class Telemetry {
 
     public static int DEFAULT_FLUSH_INTERVAL = 10000; // 10s
 
+    private String tags;
+
     protected AtomicInteger metricsSent;
     protected AtomicInteger eventsSent;
     protected AtomicInteger serviceChecksSent;
@@ -43,6 +45,8 @@ public class Telemetry {
     }
 
     Telemetry(final String tags, final StatsDProcessor processor) {
+        this.tags = tags;
+
         // precompute metrics lines with tags
         this.metricsSentMetric = "datadog.dogstatsd.client.metrics:%d|c" + tags;
         this.eventsSentMetric = "datadog.dogstatsd.client.events:%d|c" + tags;
@@ -146,5 +150,12 @@ public class Telemetry {
         this.packetsSent.set(0);
         this.packetsDropped.set(0);
         this.packetsDroppedQueue.set(0);
+    }
+
+    /**
+     * Gets the telemetry tags string.
+     */
+    public String getTags() {
+        return this.tags;
     }
 }
